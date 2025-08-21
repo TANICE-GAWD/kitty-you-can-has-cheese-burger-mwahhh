@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+
+.main-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+  font-family: 'VT323', monospace;
+}
+
+
+.background-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-width: 0;
+  z-index: 0;
+}
+
+
+.main-title {
+  position: relative;
+  z-index: 10;
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 700;
+  margin-top: 3rem;
+  letter-spacing: 0.1em;
+  color: #ff0033;
+ 
+
+}
+
+
+.buttons-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+
+.buttons-container > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 2rem;
+}
+
+
+@media (min-width: 640px) {
+  .buttons-container {
+    flex-direction: row;
+  }
+ 
+  .buttons-container > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0;
+    margin-left: 4rem;
+  }
+}
+
+
+.query-link {
+  width: 16rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+.futuristic-button-text {
+  position: relative;
+  transition: text-shadow 0.3s ease-in-out;
+  padding: 0.75rem 0;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  letter-spacing: 0.1em;
+  display: inline-block;
+}
+
+
+.query-text-cyan {
+    color: #22d3ee;
+}
+
+
+.query-text-pink {
+    color: #ec4899;
+}
+
+
+.futuristic-button-text::before,
+.futuristic-button-text::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  transition: all 0.3s ease-in-out;
+}
+
+.futuristic-button-text::before {
+  top: 0;
+}
+
+.futuristic-button-text::after {
+  bottom: 0;
+}
+
+
+.query-link:hover .futuristic-button-text {
+  text-shadow: 0 0 12px currentColor;
+}
+
+.query-link:hover .futuristic-button-text::before {
+  transform: translateX(-50%) scaleX(0.8);
+  box-shadow: 0 0 15px currentColor;
+}
+
+.query-link:hover .futuristic-button-text::after {
+  transform: translateX(-50%) scaleX(1.2);
+  box-shadow: 0 0 15px currentColor;
+}
