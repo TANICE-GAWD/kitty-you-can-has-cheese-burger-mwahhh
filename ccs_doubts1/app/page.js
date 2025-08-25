@@ -62,12 +62,6 @@ const Page = () => {
               VIEW ARCHIVES
             </span>
           </a>
-
-          <a href="/admin" className="query-link">
-            <span className="futuristic-button-text query-text-pink">
-              ADMIN ACCESS
-            </span>
-          </a>
         </div>
       </div>
     </>
