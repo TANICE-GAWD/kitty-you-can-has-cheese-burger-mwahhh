@@ -4,7 +4,7 @@ import "./globals.css";
 
 const Page = () => {
   useEffect(() => {
-    const target = document.getElementById('animated-title');
+    const target = document.getElementById("animated-title");
     if (!target) return;
 
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_1234567890";
@@ -18,14 +18,14 @@ const Page = () => {
         target.innerText = originalText
           .split("")
           .map((letter, index) => {
-            if(index < iteration) {
+            if (index < iteration) {
               return originalText[index];
             }
-            return letters[Math.floor(Math.random() * letters.length)]
+            return letters[Math.floor(Math.random() * letters.length)];
           })
           .join("");
-        
-        if(iteration >= originalText.length){
+
+        if (iteration >= originalText.length) {
           clearInterval(interval);
         }
         iteration += 1 / 5;
@@ -38,7 +38,7 @@ const Page = () => {
 
   return (
     <>
-      <div className="main-container">
+      <div className="main-container bg-black">
         <iframe
           src="https://interactive-background-three.vercel.app/"
           className="background-iframe"
@@ -49,20 +49,20 @@ const Page = () => {
         <h1 id="animated-title" className="main-title">
           DOUBT_PORTAL
         </h1>
-        
+
         <div className="buttons-container">
           <a href="/ask" className="query-link">
             <span className="futuristic-button-text query-text-cyan">
               INITIATE QUERY
             </span>
           </a>
-          
+
           <a href="/display" className="query-link">
             <span className="futuristic-button-text query-text-cyan">
               VIEW ARCHIVES
             </span>
           </a>
-          
+
           <a href="/admin" className="query-link">
             <span className="futuristic-button-text query-text-pink">
               ADMIN ACCESS
