@@ -20,6 +20,7 @@
     "react-dom": "19.1.0",
     "react-hot-toast": "^2.5.2",
     "simplex-noise": "^4.0.3",
+    "swiper": "^11.2.10",
     "three": "^0.179.1",
     "tone": "^15.1.22"
   },

@@ -1,0 +1,138 @@
+/* Loader overlay styles */
+.loaderOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsl(223, 10%, 10%);
+  color: hsl(223, 10%, 90%);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loaderOverlay.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Original CCS Loader styles adapted for CSS modules */
+.container {
+  display: flex;
+  gap: 2em;
+  font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+.pl,
+.s {
+  position: relative;
+  width: 9em;
+  height: 12em;
+}
+
+.pl:before,
+.pl:after,
+.s:before,
+.s:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  width: inherit;
+  height: 12em;
+}
+
+.pl:before {
+  animation:
+    top calc(2.6s / 2) linear infinite,
+    flipZ 2.6s steps(1) infinite;
+  border-radius: 4.5em 0 0 0 / 4em 0 0 0;
+  box-shadow: 0 4em 0 0 inset;
+  top: 0;
+}
+
+.pl:after {
+  animation: bottom calc(2.6s / 2) linear infinite;
+  animation-delay: calc(2.6s * -0.25);
+  border-radius: 0 0 0 4.5em / 0 0 0 4em;
+  box-shadow: 0 -4em 0 0 hsl(223, 90%, 55%) inset;
+  bottom: 0;
+}
+
+.s:before {
+  animation:
+    top calc(2.6s / 2) linear infinite,
+    flipZ 2.6s steps(1) infinite;
+  border-radius: 4.5em 0 0 0 / 4em 0 0 0;
+  box-shadow: 0 4em 0 0 inset;
+  top: 0;
+}
+
+.s:after {
+  animation: bottom calc(2.6s / 2) linear infinite;
+  animation-delay: calc(2.6s * -0.25);
+  border-radius: 0 0 0 4.5em / 0 0 0 4em;
+  box-shadow: 0 -4em 0 0 hsl(223, 90%, 55%) inset;
+  bottom: 0;
+  transform: scaleX(-1);
+}
+
+.sr {
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+}
+
+
+
+/* Keyframes */
+@keyframes top {
+  from {
+    animation-timing-function: ease-in;
+    clip-path: polygon(0 0, 123% 0, 123% 70%, 123% 70%, 123% 0, 123% 0, 123% 100%, 0 100%);
+  }
+  50% {
+    animation-timing-function: ease-out;
+    clip-path: polygon(0 0, 0 0, 0 70%, 77% 70%, 77% 0, 100% 0, 100% 100%, 0 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 0 0, 0 70%, 0 70%, 0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes bottom {
+  from {
+    animation-timing-function: ease-in;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 30%, 0 30%, 0 100%, 0 100%);
+  }
+  50% {
+    animation-timing-function: ease-out;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 77% 100%, 77% 30%, 0 30%, 0 100%, 0 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 123% 100%, 123% 30%, 100% 30%, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes flipZ {
+  from {
+    z-index: 0;
+  }
+  50%,
+  to {
+    z-index: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    gap: 1.5em;
+    font-size: calc(14px + (18 - 14) * (100vw - 320px) / (768 - 320));
+  }
+}

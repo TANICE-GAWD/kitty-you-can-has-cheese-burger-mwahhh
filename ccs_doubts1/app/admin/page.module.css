@@ -1,186 +1,185 @@
-
 :root {
-	--primary-color: #6366f1;
-	--primary-hover-color: #4f46e5;
-	--background-color: #111827;
-	--card-background-color: #1f2937;
-	--border-color: #4b5563;
-	--text-color: #e5e7eb;
-	--subtle-text-color: #9ca3af;
-	--reject-color: #ef4444;
-	--reject-hover-color: #dc2626;
-	--border-radius: 0.75rem;
-	--transition-speed: 0.2s;
+  --primary-color: #6366f1;
+  --primary-hover-color: #4f46e5;
+  --background-color: #111827;
+  --card-background-color: #1f2937;
+  --border-color: #4b5563;
+  --text-color: #e5e7eb;
+  --subtle-text-color: #9ca3af;
+  --reject-color: #ef4444;
+  --reject-hover-color: #dc2626;
+  --border-radius: 0.75rem;
+  --transition-speed: 0.2s;
 }
 
 
 .container {
-	min-height: 100vh;
-	background-color: var(--background-color);
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		"Helvetica Neue", Arial, sans-serif;
-	padding: 2rem 1.5rem;
-	box-sizing: border-box;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
 }
 
 .mainContent {
-	width: 100%;
-	max-width: 960px;
-	margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 
 .header {
-	text-align: center;
-	margin-bottom: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	color: var(--text-color);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
 }
 
 .subtitle {
-	color: var(--subtle-text-color);
-	margin-top: 0.5rem;
-	font-size: 1.125rem;
+  color: var(--subtle-text-color);
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
 }
 
 
 .doubtsGrid {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
 .doubtCard {
-	display: flex;
-	flex-direction: column;
-	background-color: var(--card-background-color);
-	border-radius: var(--border-radius);
-	padding: 1.5rem 2rem;
-	border: 1px solid var(--border-color);
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-	transition: all var(--transition-speed) ease;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-background-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-speed) ease;
 }
 
 .doubtCard:hover {
-	border-color: var(--primary-color);
-	transform: translateY(-4px);
+  border-color: var(--primary-color);
+  transform: translateY(-4px);
 }
 
 .cardHeader {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 1rem;
-	padding-bottom: 1rem;
-	border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .studentName {
-	font-size: 1.25rem;
-	font-weight: 600;
-	color: var(--text-color);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
 }
 
 .studentEmail {
-	font-size: 0.875rem;
-	color: var(--subtle-text-color);
+  font-size: 0.875rem;
+  color: var(--subtle-text-color);
 }
 
 .questionText {
-	flex-grow: 1;
-	color: var(--text-color);
-	line-height: 1.6;
-	margin-bottom: 1.5rem;
-	font-size: 1rem;
+  flex-grow: 1;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
 }
 
 
 .buttonGroup {
-	display: flex;
-	gap: 0.75rem;
-	margin-top: auto;
-	align-self: flex-end;
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+  align-self: flex-end;
 }
 
 .button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-weight: 600;
-	border: none;
-	border-radius: 0.5rem;
-	padding: 0.5rem 1.25rem;
-	min-width: 100px;
-	cursor: pointer;
-	transition: all var(--transition-speed) ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  min-width: 100px;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
 }
 
 .button:disabled {
-	cursor: not-allowed;
-	opacity: 0.5;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .acceptButton {
-	background-color: var(--primary-color);
-	color: white;
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .acceptButton:hover:not(:disabled) {
-	background-color: var(--primary-hover-color);
+  background-color: var(--primary-hover-color);
 }
 
 .rejectButton {
-	background-color: var(--border-color);
-	color: var(--text-color);
+  background-color: var(--border-color);
+  color: var(--text-color);
 }
 
 .rejectButton:hover:not(:disabled) {
-	background-color: var(--reject-color);
-	color: white;
+  background-color: var(--reject-color);
+  color: white;
 }
 
 
 .spinnerWrapper {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
 }
 
 .spinner {
-	width: 3rem;
-	height: 3rem;
-	border: 4px solid rgba(255, 255, 255, 0.2);
-	border-top-color: var(--primary-color);
-	border-radius: 50%;
-	animation: spin 0.8s linear infinite;
+  width: 3rem;
+  height: 3rem;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
 }
 
 .buttonSpinner {
-	width: 1.25rem;
-	height: 1.25rem;
-	border: 2px solid rgba(255, 255, 255, 0.3);
-	border-top-color: #ffffff;
-	border-radius: 50%;
-	animation: spin 0.6s linear infinite;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
 }
 
 .infoBox {
-	text-align: center;
-	padding: 3rem 2rem;
-	background-color: var(--card-background-color);
-	border-radius: var(--border-radius);
-	border: 1px solid var(--border-color);
-	color: var(--subtle-text-color);
-	font-size: 1.125rem;
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: var(--card-background-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  color: var(--subtle-text-color);
+  font-size: 1.125rem;
 }
 
 @keyframes spin {
-	to {
-		transform: rotate(360deg);
-	}
+  to {
+    transform: rotate(360deg);
+  }
 }
