@@ -36,10 +36,15 @@ export default function Loader3D({ onFinish }) {
           child.receiveShadow = true;
         }
       });
-      // Center model
+      // Center and scale model to fit view
       const box = new THREE.Box3().setFromObject(model);
+      const size = box.getSize(new THREE.Vector3());
       const center = box.getCenter(new THREE.Vector3());
-      model.position.sub(center);
+      model.position.sub(center); // Center at origin
+      // Scale to fit
+      const maxDim = Math.max(size.x, size.y, size.z);
+      const scale = 1.2 / maxDim;
+      model.scale.setScalar(scale);
       scene.add(model);
       animate();
     });
@@ -98,6 +103,7 @@ export default function Loader3D({ onFinish }) {
         opacity: fade ? 0 : 1,
         pointerEvents: fade ? "none" : "auto",
         transition: "opacity 0.6s cubic-bezier(.4,0,.2,1)",
+        overflow: "hidden"
       }}
     />
   );
