@@ -1,11 +1,39 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import styles from "./page.module.css";
 
+
+const Loader = () => (
+  <div className="loader-fullscreen-wrapper">
+    <div className="loader-container">
+      <div className="pl">
+        <span className="pl__sr">Loading…</span>
+      </div>
+      <div className="pl">
+        <span className="pl__sr">Loading…</span>
+      </div>
+      <div className="s">
+        <span className="pl__sr">Loading…</span>
+      </div>
+    </div>
+  </div>
+);
+
 export default function AskDoubt() {
+  const [isLoading, setIsLoading] = useState(true);
   const [form, setForm] = useState({ name: "", email: "", doubt: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    
+    return () => clearTimeout(timer);
+  }, []); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,6 +66,11 @@ export default function AskDoubt() {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
+  
+  
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -55,7 +88,6 @@ export default function AskDoubt() {
             required
             className={styles.input}
           />
-
           <input
             type="email"
             name="email"
@@ -65,7 +97,6 @@ export default function AskDoubt() {
             required
             className={styles.input}
           />
-
           <input
             type="text"
             name="doubt"
@@ -75,7 +106,6 @@ export default function AskDoubt() {
             required
             className={styles.input}
           />
-
           <button
             type="submit"
             disabled={isSubmitting}

@@ -100,6 +100,13 @@ export default function DisplayPage() {
 
   return (
     <div className={styles.container}>
+      {/* ADDED: Iframe for the background */}
+      <iframe
+        src="https://interactive-background-three.vercel.app"
+        className={styles.backgroundIframe}
+        title="Interactive Background"
+        loading="lazy"
+      />
       <main className={styles.mainContent}>
         <header className={styles.header}>
           <h1 className={styles.title}>Live Doubts Feed</h1>

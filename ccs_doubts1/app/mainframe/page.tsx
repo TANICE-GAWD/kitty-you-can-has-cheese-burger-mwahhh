@@ -52,8 +52,8 @@ const MainframePage: React.FC = () => {
     setError(null);
 
     if (
-      form.email === "ccsmain@thapar.edu" &&
-      form.password === "Princemygoat"
+      form.email === "2006princesharma@gmail.com" &&
+      form.password === "cutie_boi"
     ) {
       document.cookie = "authToken=ccsIsthebestsocofalltime; path=/";
 
