@@ -1,15 +1,4 @@
-:root {
-	--primary-color: #6366f1;
-	--primary-hover-color: #4f46e5;
-	--background-color: #111827;
-	--card-background-color: #1f2937;
-	--border-color: #4b5563;
-	--text-color: #e5e7eb;
-	--subtle-text-color: #9ca3af;
-	--icon-color: #9ca3af;
-	--border-radius: 0.75rem;
-	--transition-speed: 0.2s;
-  }
+
   
   .backgroundIframe {
 	position: fixed;
