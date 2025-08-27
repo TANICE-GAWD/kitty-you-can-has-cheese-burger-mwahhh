@@ -1,11 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { Toaster, toast } from "react-hot-toast";
 import "./globals.css";
+const Loader3D = dynamic(() => import("./Loader3D"), { ssr: false });
 
 export default function Page() {
   const [form, setForm] = useState({ name: "", email: "", doubt: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
 
   // DOUBT_PORTAL title animation (unchanged)
   useEffect(() => {
@@ -64,44 +67,48 @@ export default function Page() {
   return (
     <>
       <Toaster position="top-center" />
-      <div className="main-container">
-        <h1 id="animated-title" className="main-title">
-          DOUBT_PORTAL
-        </h1>
-
-        <form onSubmit={handleSubmit} className="form-container">
-          <input
-            className="form-input"
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={form.name}
-            onChange={handleInputChange}
-            required
-          />
-          <input
-            className="form-input"
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={handleInputChange}
-            required
-          />
-          <textarea
-            className="form-input textarea"
-            name="doubt"
-            placeholder="Doubt"
-            rows={5}
-            value={form.doubt}
-            onChange={handleInputChange}
-            required
-          />
-          <button className="form-button" type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Submit"}
-          </button>
-        </form>
-      </div>
+      {showLoader && <Loader3D onFinish={() => setShowLoader(false)} />}
+      {!showLoader && (
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+          <div className="main-container">
+            <h1 id="animated-title" className="main-title">
+              DOUBT_PORTAL
+            </h1>
+            <form onSubmit={handleSubmit} className="form-container">
+              <input
+                className="form-input"
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={form.name}
+                onChange={handleInputChange}
+                required
+              />
+              <input
+                className="form-input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={form.email}
+                onChange={handleInputChange}
+                required
+              />
+              <textarea
+                className="form-input textarea"
+                name="doubt"
+                placeholder="Doubt"
+                rows={5}
+                value={form.doubt}
+                onChange={handleInputChange}
+                required
+              />
+              <button className="form-button" type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 }
