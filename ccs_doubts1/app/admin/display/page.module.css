@@ -38,13 +38,13 @@
 	max-width: 960px;
 	position: relative;
 	z-index: 1;
-	pointer-events: none; /* ADDED: Makes container ignore clicks, letting them pass through. */
+	pointer-events: none;
   }
   
   .header {
 	text-align: center;
 	margin-bottom: 3rem;
-	pointer-events: auto; /* ADDED: Re-enables clicks for this specific element. */
+	pointer-events: auto;
   }
   
   .title {
@@ -103,7 +103,7 @@
 	justify-content: center;
 	align-items: center;
 	padding: 4rem;
-	pointer-events: auto; /* ADDED: Re-enables clicks for this specific element. */
+	pointer-events: auto;
   }
   
   .spinner {
@@ -129,14 +129,14 @@
 	border: 1px solid var(--border-color);
 	color: var(--subtle-text-color);
 	font-size: 1.125rem;
-	pointer-events: auto; /* ADDED: Re-enables clicks for this specific element. */
+	pointer-events: auto;
   }
   
   .infoBox p {
 	margin: 0;
   } 
  
-  /* Responsive styles */
+ 
   @media (max-width: 768px) {
 	.title {
 	  font-size: 2rem;

@@ -6,7 +6,7 @@ export default function CCSLoader({ onFinish }) {
   const [fade, setFade] = useState(false);
 
   useEffect(() => {
-    // Auto-finish after exactly 3 seconds
+    
     const timeout = setTimeout(() => {
       setFade(true);
       setTimeout(() => {

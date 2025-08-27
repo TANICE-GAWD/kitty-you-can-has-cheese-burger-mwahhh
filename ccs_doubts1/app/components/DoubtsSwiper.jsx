@@ -10,13 +10,13 @@ import styles from "./DoubtsSwiper.module.css";
 export default function DoubtsSwiper({ doubts }) {
   const swiperRef = useRef(null);
 
-  // Sort doubts by oldest first
+  
   const sortedDoubts = [...doubts].sort(
     (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
   );
 
   useEffect(() => {
-    // Focus the swiper container to enable keyboard navigation
+    
     if (swiperRef.current) {
       swiperRef.current.focus();
     }

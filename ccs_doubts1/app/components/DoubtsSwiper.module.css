@@ -59,7 +59,7 @@
   box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
 }
 
-/* Enhanced hover effect when hovering over question specifically */
+
 .swiperSlide:hover .infoItem:nth-child(3) {
   animation: questionPulse 1.5s ease-in-out infinite;
 }
@@ -73,14 +73,14 @@
   }
 }
 
-/* Blur effect for non-question items when hovering over the card */
+
 .swiperSlide:hover .infoItem:not(:nth-child(3)) {
   filter: blur(2px);
   opacity: 0.6;
   transition: all 0.3s ease;
 }
 
-/* Keep question item sharp and highlighted on card hover */
+
 .swiperSlide:hover .infoItem:nth-child(3) {
   filter: blur(0px);
   opacity: 1;
@@ -88,7 +88,7 @@
   position: relative;
 }
 
-/* Add a subtle glow around the question area */
+
 .swiperSlide:hover .infoItem:nth-child(3)::before {
   content: '';
   position: absolute;
@@ -190,14 +190,14 @@
   transform: scale(1.1);
 }
 
-/* Special highlighting for question items */
+
 .infoItem:nth-child(3) {
   font-weight: 600;
   background: rgba(99, 102, 241, 0.05);
   transition: all 0.3s ease;
 }
 
-/* Enhanced question highlighting when card is hovered */
+
 .swiperSlide:hover .infoItem:nth-child(3) {
   background: rgba(99, 102, 241, 0.3);
   transform: scale(1.08);
@@ -232,7 +232,7 @@
 
 
 
-/* Swiper Pagination */
+
 .swiperPagination {
   position: absolute;
   bottom: 20px;
@@ -258,7 +258,7 @@
   opacity: 1;
 }
 
-/* Swiper 3D Effects */
+
 :global(.swiper-container-3d .swiper-slide-shadow-left) {
   background-image: linear-gradient(to left, #000, #fff0);
   border-right: 1px solid #000;
@@ -271,7 +271,7 @@
   border-radius: 15px;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .swiperSlide {
     width: 380px;

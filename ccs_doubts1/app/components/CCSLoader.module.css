@@ -1,4 +1,4 @@
-/* Loader overlay styles */
+
 .loaderOverlay {
   position: fixed;
   top: 0;
@@ -19,7 +19,7 @@
   pointer-events: none;
 }
 
-/* Original CCS Loader styles adapted for CSS modules */
+
 .container {
   display: flex;
   gap: 2em;
@@ -90,7 +90,7 @@
 
 
 
-/* Keyframes */
+
 @keyframes top {
   from {
     animation-timing-function: ease-in;
@@ -129,7 +129,7 @@
   }
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .container {
     gap: 1.5em;

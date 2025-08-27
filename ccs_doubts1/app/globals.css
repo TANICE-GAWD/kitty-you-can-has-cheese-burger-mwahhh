@@ -1,4 +1,4 @@
-/* --------- Base --------- */
+
 * {
   box-sizing: border-box;
 }
@@ -10,19 +10,35 @@ body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
     sans-serif;
-  background: #000; /* solid black */
+  background: #000;
   color: #fff;
 }
 
-/* Theme tokens */
+
 :root {
-  --cyan: #2fd3ea; /* cyan outline like mock */
-  --field-bg: #bfbfbf; /* light grey inputs */
-  --placeholder: #6b7280; /* placeholder text */
-  --shadow: rgba(0, 0, 0, 0.38); /* deep shadow */
+  --cyan: #2fd3ea;
+  --field-bg: #bfbfbf;
+  --placeholder: #6b7280;
+  --shadow: rgba(0, 0, 0, 0.38);
+ 
+
+  --primary-color: #6366f1;
+  --primary-hover-color: #4f46e5;
+  --background-color: #111827;
+  --card-background-color: #1f2937;
+  --input-background-color: #374151;
+  --border-color: #4b5563;
+  --text-color: #e5e7eb;
+  --subtle-text-color: #9ca3af;
+  --icon-color: #9ca3af;
+  --focus-ring-color: #818cf8;
+  --border-radius: 0.75rem;
+  --transition-speed: 0.2s;
+
+
 }
 
-/* --------- Layout & BG glows (static cyan streaks) --------- */
+
 .main-container {
   min-height: 100vh;
   display: flex;
@@ -32,10 +48,10 @@ body {
   padding: clamp(24px, 4vw, 48px);
   position: relative;
   overflow: hidden;
-  background: #000; /* solid black */
+  background: #000;
 }
 
-/* glowing streaks */
+
 .main-container::before,
 .main-container::after {
   content: "";
@@ -54,40 +70,40 @@ body {
   pointer-events: none;
 }
 
-/* top-left glow */
+
 .main-container::before {
   top: -20%;
   left: -25%;
   transform: rotate(-25deg) scale(1.2, 2);
 }
 
-/* bottom-right glow */
+
 .main-container::after {
   bottom: -20%;
   right: -25%;
   transform: rotate(25deg) scale(1.2, 2);
 }
 
-/* --------- Title --------- */
+
 .main-title {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: clamp(2.2rem, 5vw, 4.8rem);
   line-height: 1.1;
-  margin: 8vh 0 6vh; /* spacing like mock */
+  margin: 8vh 0 6vh;
   text-align: center;
 }
 
-/* --------- Form --------- */
+
 .form-container {
-  width: min(760px, 86vw); /* wide, like the mock */
+  width: min(760px, 86vw);
   display: flex;
   flex-direction: column;
   gap: 28px;
 }
 
-/* single-line inputs + textarea share same look */
+
 .form-input {
   width: 100%;
   background: var(--field-bg);
@@ -97,7 +113,7 @@ body {
   padding: 14px 16px;
   font-size: 1rem;
   outline: none;
-  box-shadow: 0 8px 0 var(--shadow); /* strong bottom shadow like image */
+  box-shadow: 0 8px 0 var(--shadow);
 }
 .form-input::placeholder {
   color: var(--placeholder);
@@ -107,14 +123,14 @@ body {
   min-height: 110px;
 }
 
-/* Submit button: grey pill with cyan ring + shadow */
+
 .form-button {
   align-self: center;
   margin-top: 16px;
   width: 210px;
   padding: 12px 22px;
   border-radius: 9999px;
-  background: #cfd4d9; /* grey fill like mock */
+  background: #cfd4d9;
   color: #111827;
   font-weight: 700;
   border: 3px solid var(--cyan);
@@ -130,7 +146,7 @@ body {
   box-shadow: 0 8px 0 var(--shadow);
 }
 
-/* Small screens: keep proportions tidy */
+
 @media (max-width: 480px) {
   .main-title {
     margin: 6vh 0 5vh;
