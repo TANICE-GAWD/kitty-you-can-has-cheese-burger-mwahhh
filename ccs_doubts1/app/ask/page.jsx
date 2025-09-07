@@ -4,7 +4,7 @@ import { Toaster, toast } from "react-hot-toast";
 import styles from "./page.module.css";
 
 export default function AskDoubt() {
-  const [form, setForm] = useState({ name: "", email: "", question: "" });
+  const [form, setForm] = useState({ name: "", email: "", question: "", credits: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -23,7 +23,7 @@ export default function AskDoubt() {
         toast.success("Your doubt has been submitted!", {
           id: submissionToast,
         });
-        setForm({ name: "", email: "", question: "" });
+        setForm({ name: "", email: "", question: "", credits: "" });
       } else {
         throw new Error("Server error");
       }
@@ -36,7 +36,16 @@ export default function AskDoubt() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    
+    
+    if (name === "credits") {
+      const numValue = parseInt(value);
+      if (value === "" || (numValue >= 1 && numValue <= 10)) {
+        setForm((prev) => ({ ...prev, [name]: value }));
+      }
+    } else {
+      setForm((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   return (
@@ -72,6 +81,18 @@ export default function AskDoubt() {
             placeholder="Doubt"
             value={form.question}
             onChange={handleInputChange}
+            required
+            className={styles.input}
+          />
+
+          <input
+            type="number"
+            name="credits"
+            placeholder="Credits (1-10)"
+            value={form.credits}
+            onChange={handleInputChange}
+            min="1"
+            max="10"
             required
             className={styles.input}
           />

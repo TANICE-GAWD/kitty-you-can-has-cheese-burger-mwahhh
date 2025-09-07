@@ -85,6 +85,7 @@ export default function AdminPage() {
               <div>
                 <h2 className={styles.studentName}>{d.name}</h2>
                 <p className={styles.studentEmail}>{d.email}</p>
+                <p className={styles.creditsText}>Credits: {d.credits ?? 'N/A'}</p>
               </div>
             </div>
             <p className={styles.questionText}>{d.question}</p>
@@ -112,7 +113,7 @@ export default function AdminPage() {
 
   return (
     <>
-      {/* Toaster component for notifications, styled for dark mode */}
+      
       <Toaster
         position="bottom-right"
         toastOptions={{

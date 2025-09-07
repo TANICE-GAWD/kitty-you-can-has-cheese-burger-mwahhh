@@ -4,8 +4,8 @@ import Doubt from "../../../models/Doubt";
 export async function POST(req) {
   try {
     await connectDB();
-    const { name, email, question } = await req.json();
-    const doubt = await Doubt.create({ name, email, question, status: "pending" });
+    const { name, email, question, credits } = await req.json();
+    const doubt = await Doubt.create({ name, email, question, credits, status: "pending" });
     return new Response(JSON.stringify(doubt), { status: 201 });
   } catch (error) {
     return new Response(JSON.stringify({ error: error.message }), { status: 500 });

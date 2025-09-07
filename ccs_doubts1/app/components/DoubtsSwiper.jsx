@@ -10,10 +10,29 @@ import styles from "./DoubtsSwiper.module.css";
 export default function DoubtsSwiper({ doubts }) {
   const swiperRef = useRef(null);
 
-  
-  const sortedDoubts = [...doubts].sort(
-    (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
-  );
+  // Sort by credits (ascending - lower credits = higher priority), then by creation date
+  const sortedDoubts = [...doubts].sort((a, b) => {
+    // Handle missing credits - put them at the end
+    const aCredits = a.credits ?? null;
+    const bCredits = b.credits ?? null;
+    
+    // If one has credits and other doesn't, prioritize the one with credits
+    if (aCredits === null && bCredits !== null) return 1;
+    if (aCredits !== null && bCredits === null) return -1;
+    
+    // If both have no credits, sort by creation date
+    if (aCredits === null && bCredits === null) {
+      return new Date(a.createdAt) - new Date(b.createdAt);
+    }
+    
+    // Primary sort: by credits (ascending - 1 comes before 10)
+    if (aCredits !== bCredits) {
+      return aCredits - bCredits;
+    }
+    
+    // Secondary sort: by creation date (oldest first for same credit level)
+    return new Date(a.createdAt) - new Date(b.createdAt);
+  });
 
   useEffect(() => {
     
@@ -128,6 +147,12 @@ export default function DoubtsSwiper({ doubts }) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   {doubt.question}
+                </span>
+                <span className={styles.infoItem} title="Credits">
+                  <svg className={styles.infoIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Credits: {doubt.credits ?? 'N/A'}
                 </span>
                 <span className={styles.infoItem} title="Date">
                   <svg className={styles.infoIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
